@@ -434,3 +434,117 @@ try {
 
 let newEmployeePayrollData = new EmployeePayrollData(1, "Terrisa", 30000, "F", new Date());
 console.log(newEmployeePayrollData.toString());
+
+
+
+class EmployeePayrollData {
+    // properties
+    id;
+    salary;
+    gender;
+    startDate;
+
+    // constructor
+    constructor(...params) {
+        this.id = params[0];
+        this.name = params[1];
+        this.salary = params[2];
+        this.gender = params[3];
+        this.startDate = params[4];
+    }
+
+    // Getter and Setter for Name
+    get name() { return this._name; }
+    set name(name) {
+        let nameRegex = RegExp('^[A-Z]{1}[a-z]{3,}$');  // First letter uppercase, at least 3 lowercase letters
+        if (nameRegex.test(name))
+            this._name = name;
+        else 
+            throw "Error: Name is Incorrect! (Must start with uppercase and have at least 3 lowercase letters)";
+    }
+
+    // Getter and Setter for ID
+    get id() { return this._id; }
+    set id(id) {
+        let idRegex = RegExp('^[1-9][0-9]*$');  // Positive non-zero number
+        if (idRegex.test(id))
+            this._id = id;
+        else
+            throw "Error: ID must be a positive non-zero number!";
+    }
+
+    // Getter and Setter for Salary
+    get salary() { return this._salary; }
+    set salary(salary) {
+        let salaryRegex = RegExp('^[1-9][0-9]*$');  // Positive non-zero number
+        if (salaryRegex.test(salary))
+            this._salary = salary;
+        else
+            throw "Error: Salary must be a positive non-zero number!";
+    }
+
+    // Getter and Setter for Gender
+    get gender() { return this._gender; }
+    set gender(gender) {
+        let genderRegex = RegExp('^[MF]$');  // Only 'M' or 'F' allowed
+        if (genderRegex.test(gender))
+            this._gender = gender;
+        else
+            throw "Error: Gender must be 'M' or 'F'!";
+    }
+
+    // Getter and Setter for Start Date
+    get startDate() { return this._startDate; }
+    set startDate(startDate) {
+        if (startDate instanceof Date && startDate <= new Date())
+            this._startDate = startDate;
+        else
+            throw "Error: Start date cannot be a future date!";
+    }
+
+    // toString Method
+    toString() {
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        const empDate = this.startDate ? this.startDate.toLocaleDateString("en-US", options) : "undefined";
+        return `id=${this.id}, name='${this.name}', salary=${this.salary}, gender=${this.gender}, startDate=${empDate}`;
+    }
+}
+
+// Test Cases
+try {
+    let employeePayrollData = new EmployeePayrollData(1, "Mark", 30000, "M", new Date("2024-03-15"));
+    console.log(employeePayrollData.toString());
+
+    // Trying invalid name
+    employeePayrollData.name = "jo";  // Should throw an error
+} catch (e) {
+    console.error(e);
+}
+
+try {
+    // Trying invalid ID
+    let invalidEmployee = new EmployeePayrollData(0, "Terrisa", 30000, "F", new Date("2024-03-15"));
+} catch (e) {
+    console.error(e);
+}
+
+try {
+    // Trying invalid Salary
+    let invalidSalaryEmployee = new EmployeePayrollData(2, "John", -5000, "M", new Date("2024-03-15"));
+} catch (e) {
+    console.error(e);
+}
+
+try {
+    // Trying invalid Gender
+    let invalidGenderEmployee = new EmployeePayrollData(3, "Alice", 40000, "X", new Date("2024-03-15"));
+} catch (e) {
+    console.error(e);
+}
+
+try {
+    // Trying future date
+    let futureDateEmployee = new EmployeePayrollData(4, "Bob", 35000, "M", new Date("2026-01-01"));
+} catch (e) {
+    console.error(e);
+}
