@@ -1,3 +1,5 @@
+// PINCODE-1
+
 // Function to validate Indian PIN code
 function validatePinCode(pinCode) {
     let pinRegex = /^[1-9][0-9]{5}$/; 
@@ -12,7 +14,7 @@ console.log(validatePinCode("4000889"));
 console.log(validatePinCode("40A088")); 
 
 
-
+// PINCODE-2
 // Function to validate Indian PIN code
 function validatePinCode(pinCode) {
     let pinRegex = /^[1-9][0-9]{5}$/; // Ensures it starts with 1-9 and has exactly 6 digits
@@ -29,6 +31,7 @@ console.log(validatePinCode("4000889"));
 console.log(validatePinCode("40A088"));  
 
 
+// PINCODE-3
 // Function to validate Indian PIN code
 function validatePinCode(pinCode) {
     let pinRegex = /^[1-9][0-9]{5}$/; 
