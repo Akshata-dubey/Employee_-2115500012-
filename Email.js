@@ -37,4 +37,23 @@ console.log(validateEmail("abc@xyz.co.in"));
 console.log(validateEmail("abc.xyz@bridge.co.in"));     
 console.log(validateEmail("abcxyz@bridgelabz.co"));     
 console.log(validateEmail("abc-xyz@bridgelabz.co.in")); 
-console.log(validateEmail("abc@bridgelabzcom"));        
+console.log(validateEmail("abc@bridgelabzcom"));
+
+
+//ENAIL-3
+function validateBridgelabzDomain(input) {
+    const regex = /^bridgelabz\.(\w+\.)*co$/;
+    return regex.test(input);
+}
+
+// Test cases
+console.log(validateBridgelabzDomain("bridgelabz.co"));        // true
+console.log(validateBridgelabzDomain("bridgelabz.xyz.co"));    // true
+console.log(validateBridgelabzDomain("bridgelabz.tech.dev.co")); // true
+console.log(validateBridgelabzDomain("bridgelabzcom"));        // false
+console.log(validateBridgelabzDomain("bridgelabz.xyz"));       // false
+console.log(validateBridgelabzDomain("bridgelabz."));         // false
+console.log(validateBridgelabzDomain("bridgelabz..co"));      // false
+
+
+
