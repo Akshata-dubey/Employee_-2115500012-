@@ -56,7 +56,7 @@ console.log(validateBridgelabzDomain("bridgelabz."));         // false
 console.log(validateBridgelabzDomain("bridgelabz..co"));      // false
 
 
-
+//EMAIL-4
 function validateBridgelabzEmail(input) {
     const regex = /^[a-zA-Z0-9][a-zA-Z0-9._+\-]*\.xyz@bridgelabz\.co(\.in)?$/;
     return regex.test(input);
@@ -73,4 +73,24 @@ console.log(validateBridgelabzEmail("abc.xyz@bridgelabz.com"));
 console.log(validateBridgelabzEmail("abc@bridgelabz.co"));             
 console.log(validateBridgelabzEmail("abc$xyz@bridgelabz.co.in"));     
 console.log(validateBridgelabzEmail("abc.xyz@bridgelabz.xyz.co.in"));  
+
+
+
+//EMAIL-5
+function validateBridgelabzEmail(input) {
+    const regex = /^[a-zA-Z0-9][a-zA-Z0-9._+\-]*\.xyz@bridgelabz\.co(\.[a-zA-Z]{2})?$/;
+    return regex.test(input);
+}
+
+// Test cases
+console.log(validateBridgelabzEmail("abc.xyz@bridgelabz.co"));         
+console.log(validateBridgelabzEmail("abc_xyz@bridgelabz.co.in"));      
+console.log(validateBridgelabzEmail("abc+xyz@bridgelabz.co.us"));    
+console.log(validateBridgelabzEmail("abc-xyz@bridgelabz.co.uk"));    
+console.log(validateBridgelabzEmail("abc.xyz@bridgelabz.co.au"));     
+console.log(validateBridgelabzEmail("abc@bridgelabz.co.in"));         
+console.log(validateBridgelabzEmail("abc.xyz@bridgelabz.com"));       
+console.log(validateBridgelabzEmail("abc$xyz@bridgelabz.co.in")); 
+console.log(validateBridgelabzEmail("abc.xyz@bridgelabz.co.india"));   
+console.log(validateBridgelabzEmail("abc.xyz@bridgelabz.co.123"));     
 
