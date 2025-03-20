@@ -57,3 +57,20 @@ console.log(validateBridgelabzDomain("bridgelabz..co"));      // false
 
 
 
+function validateBridgelabzEmail(input) {
+    const regex = /^[a-zA-Z0-9][a-zA-Z0-9._+\-]*\.xyz@bridgelabz\.co(\.in)?$/;
+    return regex.test(input);
+}
+
+// Test cases
+console.log(validateBridgelabzEmail("abc.xyz@bridgelabz.co"));         
+console.log(validateBridgelabzEmail("abc_xyz@bridgelabz.co.in"));      
+console.log(validateBridgelabzEmail("abc+xyz@bridgelabz.co.in"));     
+console.log(validateBridgelabzEmail("abc-xyz@bridgelabz.co"));         
+console.log(validateBridgelabzEmail("abc.xyz@bridgelabz.co.in"));      
+console.log(validateBridgelabzEmail("abc@bridgelabz.co.in"));          
+console.log(validateBridgelabzEmail("abc.xyz@bridgelabz.com"));      
+console.log(validateBridgelabzEmail("abc@bridgelabz.co"));             
+console.log(validateBridgelabzEmail("abc$xyz@bridgelabz.co.in"));     
+console.log(validateBridgelabzEmail("abc.xyz@bridgelabz.xyz.co.in"));  
+
